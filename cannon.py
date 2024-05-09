@@ -78,7 +78,7 @@ def move():
             elif target.y > 200:
                 target.y = 199
 
-    ontimer(move, 5)
+    ontimer(move, 1)
 
 
 setup(420, 420, 370, 0)

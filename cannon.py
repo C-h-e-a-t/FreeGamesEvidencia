@@ -70,11 +70,15 @@ def move():
 
     draw()
 
-    for target in targets:
+    for target in targets[:]:
         if not inside(target):
-            return
+            targets.remove(target)
+            if target.y < -200:
+                target.y = -199
+            elif target.y > 200:
+                target.y = 199
 
-    ontimer(move, 50)
+    ontimer(move, 5)
 
 
 setup(420, 420, 370, 0)

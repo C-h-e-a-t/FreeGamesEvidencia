@@ -12,6 +12,8 @@ Exercises
 from random import choice
 from turtle import *
 
+from math import *
+
 from freegames import floor, vector
 
 state = {'score': 0}
@@ -140,9 +142,18 @@ def move():
                 vector(0, 5),
                 vector(0, -5),
             ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+            check=vector(0,0)
+            for i in options:
+                if valid(point+i):
+                    if check!=vector(0,0):
+                        if dist(((point+i).x,(point+i).y),(pacman.x,pacman.y))<dist(((point+check).x,(point+check).y),(pacman.x,pacman.y)):
+                            check.x=i.x
+                            check.y=i.y
+                    else:
+                        check.x=i.x
+                        check.y=i.y
+            course.x=check.x
+            course.y=check.y
 
         up()
         goto(point.x + 10, point.y + 10)

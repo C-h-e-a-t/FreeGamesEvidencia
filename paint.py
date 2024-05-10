@@ -10,7 +10,7 @@ Exercises
 """
 
 from turtle import *
-
+import turtle
 from freegames import vector
 
 
@@ -42,10 +42,7 @@ def circle(start, end):
     goto(start.x, start.y)
     down()
     begin_fill()
-    
-    for count in range(100):
-        forward(end.x - start.x)
-        left(3.6)
+    turtle.circle((end.x- start.x))
     end_fill()
     
 

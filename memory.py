@@ -76,7 +76,12 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
+    contador = 0
+    for count in range(64):
+        if not hide[count]:
+            contador+=1
+    if contador == 64:
+        print("¡Felicidades, ganaste!")
     update()
     ontimer(draw, 100)
 

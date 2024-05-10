@@ -18,6 +18,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+tap_count=0
 
 
 def square(x, y):
@@ -47,6 +48,9 @@ def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     spot = index(x, y)
     mark = state['mark']
+    global tap_count
+    tap_count=tap_count+1
+    print("Taps: ", tap_count)
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot

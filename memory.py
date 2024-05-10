@@ -59,6 +59,10 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+def all_tiles_revealed():
+    """Check if all tiles are revealed."""
+    return all(not hide[i] for i in range(len(hide)))
+
 
 def draw():
     """Draw image and tiles."""
@@ -83,6 +87,10 @@ def draw():
         
 
     update()
+    
+    if all_tiles_revealed():
+        print("¡Todos los cuadros han sido destapados!")
+    
     ontimer(draw, 100)
 
 
